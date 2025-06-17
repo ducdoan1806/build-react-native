@@ -1,11 +1,13 @@
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
-import { IconButton, Modal, Portal } from "react-native-paper";
+import { IconButton } from "react-native-paper";
+import { deleteToken } from "../utils/storage";
+import ConfirmDialog from "./ConfirmDialog";
 const Header = () => {
   const [visible, setVisible] = useState(false);
-
+  const router = useRouter();
   const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
   return (
     <View
       style={{
@@ -36,20 +38,16 @@ const Header = () => {
           Scanner
         </Text>
       </Text>
-      <Portal>
-        <Modal
-          visible={visible}
-          onDismiss={hideModal}
-          contentContainerStyle={{
-            backgroundColor: "white",
-            padding: 8,
-            marginHorizontal: 16,
-            borderRadius: 8,
-          }}
-        >
-          <Text>Example Modal. Click outside this area to dismiss.</Text>
-        </Modal>
-      </Portal>
+      <ConfirmDialog
+        visible={visible}
+        title="Logout"
+        message="Do you want to logout ?"
+        onConfirm={async () => {
+          await deleteToken();
+          router.push("/login");
+        }}
+        onCancel={() => setVisible(false)}
+      />
       <IconButton
         size={20}
         icon="logout"

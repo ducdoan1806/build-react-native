@@ -12,7 +12,7 @@ export default function Index() {
     >
       <View style={{ padding: 8 }}>
         <View
-          style={{ backgroundColor: "#3b82f6", padding: 8, borderRadius: 8 }}
+          style={{ backgroundColor: "#15236d", padding: 8, borderRadius: 8 }}
         >
           <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
             <Avatar.Icon
