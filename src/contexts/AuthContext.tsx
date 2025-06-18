@@ -1,20 +1,14 @@
 import { useRouter } from "expo-router";
 import {
-    createContext,
-    ReactNode,
-    useContext,
-    useEffect,
-    useState,
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
 import api from "../api/api";
+import { User } from "../types/User";
 import { deleteToken, getToken } from "../utils/storage";
-
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  // thêm các trường khác nếu cần
-};
 
 type AuthContextType = {
   user: User | null;

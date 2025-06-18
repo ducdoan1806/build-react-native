@@ -30,7 +30,7 @@ export default function Login() {
         })
       );
       await saveToken("Bearer " + res?.data?.access_token);
-      router.push("/(auth)");
+      router.replace("/(auth)");
     } catch (error) {
       showError(error);
     } finally {
