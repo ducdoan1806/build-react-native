@@ -1,4 +1,3 @@
-import Header from "@/src/components/Header";
 import { AuthProvider } from "@/src/contexts/AuthContext";
 import { Stack } from "expo-router";
 import { PaperProvider } from "react-native-paper";
@@ -9,7 +8,7 @@ export default function AuthLayout() {
       <PaperProvider>
         <Stack
           screenOptions={{
-            header: () => <Header />,
+            headerShown: false,
           }}
         >
           <Stack.Screen name="index" />

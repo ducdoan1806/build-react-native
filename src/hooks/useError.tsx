@@ -5,6 +5,7 @@ export function useError() {
   const [error, setError] = useState<string>("");
 
   function showError(raw: unknown) {
+    console.log("raw: ", raw);
     let msg: string;
     if (
       raw &&
